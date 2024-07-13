@@ -1,0 +1,30 @@
+module "api_gateway" {
+  source = "./modules/api-gateway"
+  eksClusterEndpoint  = var.eksClusterEndpoint
+  apiGatewayName      = var.apiGatewayName
+  vpcId               = var.vpcId
+  subnetIds           = var.subnetIds
+  targetArns          = var.targetArns
+  vpcLinkName         = var.vpcLinkName
+  lbClientsName       = var.lbClientsName
+  lbInternal          = var.lbInternal
+  lbType              = var.lbType
+  lbClientsTgName     = var.lbClientsTgName
+  targetGroupPort     = var.targetGroupPort
+  targetGroupProtocol = var.targetGroupProtocol
+  listenerPort        = var.listenerPort
+  listenerProtocol    = var.listenerProtocol
+  defaultActionType   = var.defaultActionType
+  lbPedidosName       = var.lbPedidosName
+  lbPedidosTgName     = var.lbPedidosTgName
+  lbProdutosName      = var.lbProdutosName
+  lbProdutosTgName    = var.lbProdutosTgName
+  lbCheckoutName      = var.lbCheckoutName
+  lbCheckoutTgName    = var.lbCheckoutTgName
+  lbCategoriasName    = var.lbCategoriasName
+  lbCategoriasTgName  = var.lbCategoriasTgName
+  dnsName             = var.dnsName
+  apiGtwId            = var.apiGtwId
+  vpcLinkId           = var.vpcLinkId
+}
+
