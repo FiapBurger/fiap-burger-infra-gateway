@@ -38,6 +38,7 @@ variable "stageName" {
   type        = string
   default     = "prod"
 }
+
 variable "apiGtwRootResourceId" {
   description = "Root Resource ID do API Gateway"
   type        = string

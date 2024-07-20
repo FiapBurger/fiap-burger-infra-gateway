@@ -76,4 +76,3 @@ resource "aws_api_gateway_method" "produtos_health_GET" {
   http_method   = "GET"
   authorization = "NONE"
 }
-

@@ -14,12 +14,12 @@ variable "securityGroupId" {
 }
 
 variable "apiGtwId" {
-  description = "apiGtwId"
+  description = "ID da API Gateway"
   type        = string
 }
 
 variable "vpcLinkId" {
-  description = "Vpc Link Id"
+  description = "ID do VPC Link"
   type        = string
 }
 

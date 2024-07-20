@@ -1,5 +1,5 @@
 resource "aws_api_gateway_vpc_link" "vpc_link" {
-  name        = "fiap-burger-vpc-link"
+  name        = var.apiGatewayName
   target_arns = var.targetArns
 
   lifecycle {

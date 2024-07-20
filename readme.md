@@ -21,26 +21,12 @@ src
 └── modules/
     └── api-gateway/
         ├── main.tf
-        ├── outputs.tf 
         ├── variables.tf
         ├── security-groups.tf
         ├── api-gateway.tf
+        ├── router-tables.tf
         ├── deployments.tf
-        ├── checkout/
-        |   ├── balancers.tf
-        |   ├── integration.tf
-        |   ├── resources.tf
-        |   └── vars.tf
-        ├── clientes/
-        |   ├── balancers.tf
-        |   ├── integration.tf
-        |   ├── resources.tf
-        |   └── vars.tf
-        ├── pedidos/
-        |   ├── balancers.tf
-        |   ├── integration.tf
-        |   ├── resources.tf
-        |   └── vars.tf
+        ├── internet-gateway.tf
         └── produtos/
             ├── balancers.tf
             ├── integration.tf

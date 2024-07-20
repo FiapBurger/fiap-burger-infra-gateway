@@ -29,7 +29,7 @@ variable "subnetC" {
 }
 
 variable "subnetIds" {
-  description = "List of subnet IDs"
+  description = "Lista de IDs de subnets"
   type        = list(string)
   default     = []
 }
