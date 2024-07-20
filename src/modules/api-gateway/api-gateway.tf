@@ -5,7 +5,7 @@ resource "aws_api_gateway_rest_api" "fiap_burger_api" {
 
 data "aws_api_gateway_resource" "root" {
   rest_api_id = aws_api_gateway_rest_api.fiap_burger_api.id
-  path        = "/app"
+  path        = "/"
 }
 
 output "api_gateway_id" {
