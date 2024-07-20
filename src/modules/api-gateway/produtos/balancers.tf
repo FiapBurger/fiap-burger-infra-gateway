@@ -6,24 +6,24 @@ resource "aws_lb" "produtos_fiap_burger_lb" {
   subnets            = var.subnetIds
 }
 
-resource "aws_lb_target_group" "produtos_tg" {
+resource "aws_lb_target_group" "produtos_acn_tg" {
   name     = "produtos-fiap-burger-tg"
   port     = 80
   protocol = "TCP"
   vpc_id   = var.vpcId
 }
 
-resource "aws_lb_listener" "produtos_listener" {
+resource "aws_lb_listener" "produtos_acn_listener" {
   load_balancer_arn = aws_lb.produtos_fiap_burger_lb.arn
   port              = 80
   protocol          = "TCP"
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.produtos_tg.arn
+    target_group_arn = aws_lb_target_group.produtos_acn_tg.arn
   }
 }
 
 output "target_group_arn" {
-  value = aws_lb_target_group.produtos_tg.arn
+  value = aws_lb_target_group.produtos_acn_tg.arn
 }
