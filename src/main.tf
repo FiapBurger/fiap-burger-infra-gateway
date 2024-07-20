@@ -1,3 +1,8 @@
+provider "aws" {
+  profile = "fiap-burguer"
+  region  = "us-east-1"
+}
+
 module "api_gateway" {
   source = "./modules/api-gateway"
 
