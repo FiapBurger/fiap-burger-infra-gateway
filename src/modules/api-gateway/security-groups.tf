@@ -1,4 +1,17 @@
+data "aws_security_group" "existing_sg" {
+  filter {
+    name   = "group-name"
+    values = ["${var.apiGatewayName}-sg"]
+  }
+
+  filter {
+    name   = "vpc-id"
+    values = [var.vpcId]
+  }
+}
+
 resource "aws_security_group" "api_gateway_sg" {
+  count = length(data.aws_security_group.existing_sg.id) > 0 ? 0 : 1
   name        = "${var.apiGatewayName}-sg"
   description = "Security group for the API Gateway"
   vpc_id      = var.vpcId
@@ -33,5 +46,5 @@ resource "aws_security_group" "api_gateway_sg" {
 }
 
 output "security_group_id" {
-  value = aws_security_group.api_gateway_sg.id
+  value = coalesce(data.aws_security_group.existing_sg.id, aws_security_group.api_gateway_sg[0].id)
 }
