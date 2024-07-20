@@ -1,6 +1,9 @@
 provider "aws" {
-  profile = "fiap-burguer"
-  region  = "us-east-1"
+  region = "us-east-1"
+}
+
+locals {
+  cluster_name = "hom-teste"
 }
 
 module "api_gateway" {
