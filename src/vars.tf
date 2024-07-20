@@ -1,6 +1,6 @@
 variable "apiGatewayName" {
   type        = string
-  default     = "fiap-gtw"
+  default     = "fiap-gtw-teste"
   description = "Nome do API Gateway"
 }
 

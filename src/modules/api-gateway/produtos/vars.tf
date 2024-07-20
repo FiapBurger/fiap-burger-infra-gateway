@@ -13,12 +13,17 @@ variable "securityGroupId" {
   type        = string
 }
 
+variable "apiGtwId" {
+  description = "apiGtwId"
+  type        = string
+}
+
 variable "vpcLinkId" {
   description = "Vpc Link Id"
   type        = string
 }
 
-variable "apiGtwId" {
-  description = "apiGtwId"
+variable "apiGtwRootResourceId" {
+  description = "Root Resource ID do API Gateway"
   type        = string
 }

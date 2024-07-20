@@ -5,53 +5,12 @@ module "api_gateway" {
   vpcId          = var.vpcId
   subnetIds      = var.subnetIds
   targetArns     = [
-    module.checkout.target_group_arn,
-    module.clientes.target_group_arn,
-    module.pedidos.target_group_arn,
     module.produtos.target_group_arn
   ]
   subnetA        = var.subnetA
   subnetB        = var.subnetB
   subnetC        = var.subnetA
-}
-
-module "checkout" {
-  source            = "./modules/api-gateway/checkout"
-  vpcId             = var.vpcId
-  subnetIds         = [
-    var.subnetA,
-    var.subnetB,
-    var.subnetC
-  ]
-  apiGtwId          = module.api_gateway.api_gateway_id
-  securityGroupId   = module.api_gateway.security_group_id
-  vpcLinkId         = module.api_gateway.vpc_link_id
-}
-
-module "clientes" {
-  source            = "./modules/api-gateway/clientes"
-  vpcId             = var.vpcId
-  subnetIds         = [
-    var.subnetA,
-    var.subnetB,
-    var.subnetC
-  ]
-  apiGtwId          = module.api_gateway.api_gateway_id
-  securityGroupId   = module.api_gateway.security_group_id
-  vpcLinkId         = module.api_gateway.vpc_link_id
-}
-
-module "pedidos" {
-  source            = "./modules/api-gateway/pedidos"
-  vpcId             = var.vpcId
-  subnetIds         = [
-    var.subnetA,
-    var.subnetB,
-    var.subnetC
-  ]
-  apiGtwId          = module.api_gateway.api_gateway_id
-  securityGroupId   = module.api_gateway.security_group_id
-  vpcLinkId         = module.api_gateway.vpc_link_id
+  apiGtwRootResourceId = module.api_gateway.api_gateway_root_resource_id
 }
 
 module "produtos" {
@@ -65,4 +24,5 @@ module "produtos" {
   apiGtwId          = module.api_gateway.api_gateway_id
   securityGroupId   = module.api_gateway.security_group_id
   vpcLinkId         = module.api_gateway.vpc_link_id
+  apiGtwRootResourceId = module.api_gateway.api_gateway_root_resource_id
 }
