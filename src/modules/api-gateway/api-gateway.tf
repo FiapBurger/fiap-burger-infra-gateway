@@ -3,6 +3,12 @@ resource "aws_api_gateway_rest_api" "fiap_burger_api" {
   description = "API Gateway for microservices"
 }
 
-output "api_gateway_url" {
-  value = aws_api_gateway_deployment.fiap_burger_deployment.invoke_url
+output "api_gateway_id" {
+  description = "ID do API Gateway"
+  value       = aws_api_gateway_rest_api.fiap_burger_api.id
+}
+
+output "api_gateway_root_resource_id" {
+  description = "ID do recurso raiz do API Gateway"
+  value       = aws_api_gateway_rest_api.fiap_burger_api.root_resource_id
 }

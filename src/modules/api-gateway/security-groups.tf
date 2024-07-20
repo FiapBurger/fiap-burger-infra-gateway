@@ -32,6 +32,6 @@ resource "aws_security_group" "api_gateway_sg" {
   }
 }
 
-output "api_gateway_sg_id" {
+output "security_group_id" {
   value = aws_security_group.api_gateway_sg.id
 }

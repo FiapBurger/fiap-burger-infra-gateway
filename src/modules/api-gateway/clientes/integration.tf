@@ -4,7 +4,7 @@ resource "aws_api_gateway_integration" "clientes_integration_POST" {
   http_method             = "POST"
   integration_http_method = "POST"
   type                    = "HTTP_PROXY"
-  uri                     = "http://${aws_lb.clients_fiap_burger_lb.dns_name}"
+  uri                     = "http://${aws_lb.clientes_fiap_burger_lb.dns_name}"
   connection_type         = "VPC_LINK"
   connection_id           = var.vpcLinkId
 }
@@ -15,7 +15,7 @@ resource "aws_api_gateway_integration" "clientes_integration_GET" {
   http_method             = "GET"
   integration_http_method = "GET"
   type                    = "HTTP_PROXY"
-  uri                     = "http://${aws_lb.clients_fiap_burger_lb.dns_name}"
+  uri                     = "http://${aws_lb.clientes_fiap_burger_lb.dns_name}"
   connection_type         = "VPC_LINK"
   connection_id           = var.vpcLinkId
 }

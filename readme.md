@@ -24,17 +24,28 @@ src
         ├── outputs.tf 
         ├── variables.tf
         ├── security-groups.tf
-        ├── api-gateway-links.tf
+        ├── api-gateway.tf
         ├── deployments.tf
-        ├── integrations.tf
-        ├── resources.tf
-        └── scopes/
-            ├── main.tf
-            ├── categorias.tf
-            ├── cliente.tf
-            ├── checkout.tf
-            ├── pedido.tf
-            └── produtos.tf
+        ├── checkout/
+        |   ├── balancers.tf
+        |   ├── integration.tf
+        |   ├── resources.tf
+        |   └── vars.tf
+        ├── clientes/
+        |   ├── balancers.tf
+        |   ├── integration.tf
+        |   ├── resources.tf
+        |   └── vars.tf
+        ├── pedidos/
+        |   ├── balancers.tf
+        |   ├── integration.tf
+        |   ├── resources.tf
+        |   └── vars.tf
+        └── produtos/
+            ├── balancers.tf
+            ├── integration.tf
+            ├── resources.tf
+            └── vars.tf
 ```
 
 ## Funcionalidades de Negócio
