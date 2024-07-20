@@ -24,8 +24,8 @@ jobs:
       - name: List files in src directory
         run: ls -la src
 
-      - name: Display provider.tf content
-        run: cat src/provider.tf
+      - name: Change to src directory
+        run: cd src
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
@@ -34,15 +34,18 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -chdir=src
+        run: |
+          cd src
+          terraform init
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false -chdir=src
+        run: |
+          cd src
+          terraform apply -auto-approve -input=false
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS
