@@ -24,38 +24,25 @@ jobs:
       - name: List files in src directory
         run: ls -la src
 
-      - name: Change to src directory
-        run: cd src
-
       - name: Terraform Format
-        run: |
-          cd src
-          terraform fmt -check
+        run: cd src && terraform fmt -check
 
       - name: Terraform Init
-        run: |
-          cd src
-          terraform init
+        run: cd src && terraform init
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
 
       - name: Terraform Validate
-        run: |
-          cd src
-          terraform validate -no-color
+        run: cd src && terraform validate -no-color
 
       - name: Terraform Plan
-        run: |
-          cd src
-          terraform plan -no-color -input=false
+        run: cd src && terraform plan -no-color -input=false
         continue-on-error: true
 
       - name: Terraform Apply
-        run: |
-          cd src
-          terraform apply -auto-approve -input=false
+        run: cd src && terraform apply -auto-approve -input=false
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
