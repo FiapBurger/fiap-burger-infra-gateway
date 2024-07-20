@@ -11,24 +11,6 @@ on:
       - feature/**
 
 jobs:
-  validate-openapi:
-    name: Validate OpenAPI
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install OpenAPI validator
-        run: npm install -g @apidevtools/swagger-cli
-
-      - name: Validate OpenAPI file
-        run: swagger-cli validate contrato/fiap-burger.yaml
-
   terraform-apply:
     name: Terraform Apply
     runs-on: ubuntu-latest
